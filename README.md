@@ -21,7 +21,7 @@ CryptUI is a command-line tool that displays real-time cryptocurrency price char
 
     This will install the `cryptui` command and create the configuration directory at `/usr/local/etc/cryptui` with default settings.
 
-    **Note:** Creating the `/usr/local/etc/cryptui` directory requires root privileges, so the `make install` command will use `sudo`. If you prefer not to install the tool system-wide, you can run the `cryptui.py` script directly from this root directory. When run directly, it will use the `config.ini.example` and `notification.md.example` files from the same directory.
+    **Note:** Creating the `/usr/local/etc/cryptui` directory requires root privileges, so the `make install` command will use `sudo`. If you prefer not to install the tool system-wide, you can run the `cryptui.py` script directly from this root directory. When run directly, it will use the `config.ini` and `notification.md` files from the same directory.
 
 ## Usage
 
