@@ -1,0 +1,6 @@
+- BTCUSDT
+  - less: 102000
+  - more: 104000
+- ETHUSDT
+  - less: 3000
+  - more: 3500
