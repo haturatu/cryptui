@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cryptui"
+version = "0.1.0"
+description = "A real-time crypto price chart from Binance."
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [
+  {name = "haturatu"},
+]
+license = {text = "MIT"}
+
+dependencies = [
+  "httpx",
+  "websockets",
+  "asciichartpy",
+]
+
+[project.scripts]
+cryptui = "cryptui.main:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+packages = ["cryptui"]

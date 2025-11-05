@@ -12,23 +12,27 @@ CryptUI is a command-line tool that displays real-time cryptocurrency price char
 
 ## Installation
 
-1.  Clone the repository or download the source code.
-2.  Install the required Python packages:
+1.  Clone this repository.
+2.  Run the following command to build and install the tool:
 
     ```bash
-    pip install -r requirements.txt
+    make install
     ```
+
+    This will install the `cryptui` command and create the configuration directory at `/usr/local/etc/cryptui` with default settings.
+
+    **Note:** Creating the `/usr/local/etc/cryptui` directory requires root privileges, so the `make install` command will use `sudo`. If you prefer not to install the tool system-wide, you can run the `cryptui.py` script directly from this root directory. When run directly, it will use the `config.ini.example` and `notification.md.example` files from the same directory.
 
 ## Usage
 
-Run the script using `python cryptui.py`.
+Run the script using the `cryptui` command.
 
 ### Basic Usage
 
 To start a real-time price stream for BTCUSDT:
 
 ```bash
-python cryptui.py
+cryptui
 ```
 
 ### Command-Line Arguments
@@ -44,20 +48,22 @@ python cryptui.py
 **Show a 1-hour candlestick chart for ETHUSDT:**
 
 ```bash
-python cryptui.py --symbol ETHUSDT --interval 1h
+cryptui --symbol ETHUSDT --interval 1h
 ```
 
 **Start a real-time stream for DOGEUSDT with a custom chart height:**
 
 ```bash
-python cryptui.py -s DOGEUSDT -H 20
+cryptui -s DOGEUSDT -H 20
 ```
 
 ## Configuration
 
+Configuration files are located in `/usr/local/etc/cryptui/`.
+
 ### Price Notifications (`notification.md`)
 
-To receive price alerts, create a file named `notification.md` in the same directory. The script will monitor the price of the selected symbol and send a `wall` message when it crosses the defined thresholds:
+To receive price alerts, edit `/usr/local/etc/cryptui/notification.md`. The script will monitor the price of the selected symbol and send a `wall` message when it crosses the defined thresholds:
 
 -   `less`: Notifies when the price becomes **less than or equal to** this value.
 -   `more`: Notifies when the price becomes **greater than or equal to** this value.
@@ -77,7 +83,7 @@ The notification will only trigger once when the threshold is crossed. It resets
 
 ### Technical Indicators (`config.ini`)
 
-To configure technical indicators, create a `config.ini` file. Currently, Bollinger Bands are supported.
+To configure technical indicators, edit `/usr/local/etc/cryptui/config.ini`. Currently, Bollinger Bands are supported.
 
 **Example `config.ini`:**
 
