@@ -1,8 +1,8 @@
-# CryptUI
+# cryptui
 
 <img width="1220" height="546" alt="image" src="https://github.com/user-attachments/assets/3a353622-8610-4dca-ac68-8ef10b1426df" />
 
-CryptUI is a command-line tool that displays real-time cryptocurrency price charts from Binance in your terminal. It supports real-time trade streams, candlestick charts, price-based notifications, and technical indicators.
+cryptui is a command-line tool that displays real-time cryptocurrency price charts from Binance in your terminal. It supports real-time trade streams, candlestick charts, price-based notifications, and technical indicators.
 
 ## Features
 
