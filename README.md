@@ -27,6 +27,25 @@ CryptUI is a command-line tool that displays real-time cryptocurrency price char
 
 Run the script using the `cryptui` command.
 
+```bash
+$ cryptui -h
+usage: cryptui [-h] [-s SYMBOL] [-i {1m,3m,5m,15m,30m,1h,2h,4h,6h,12h,1d,1w,1M}] [-H HEIGHT] [-w WIDTH]
+
+Real-time crypto price chart from Binance with technical analysis and notifications.
+
+options:
+  -h, --help            show this help message and exit
+  -s SYMBOL, --symbol SYMBOL
+                        Symbol to display (e.g., BTCUSDT, ETHUSDT).
+  -i {1m,3m,5m,15m,30m,1h,2h,4h,6h,12h,1d,1w,1M}, --interval {1m,3m,5m,15m,30m,1h,2h,4h,6h,12h,1d,1w,1M}
+                        Show candlestick chart for a given interval.
+                        If not provided, shows real-time trade stream.
+  -H HEIGHT, --height HEIGHT
+                        Chart height in lines (default: 15).
+  -w WIDTH, --width WIDTH
+                        Chart width in characters (default: 50).
+```
+
 ### Basic Usage
 
 To start a real-time price stream for BTCUSDT:
