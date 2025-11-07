@@ -21,9 +21,9 @@ cryptui is a command-line tool that displays real-time cryptocurrency price char
     make install
     ```
 
-    This will install the `cryptui` command and create the configuration directory at `/usr/local/etc/cryptui` with default settings.
+    This will install the `cryptui` command and create the configuration directory at `~/.config/cryptui` with default settings.
 
-    **Note:** Creating the `/usr/local/etc/cryptui` directory requires root privileges, so the `make install` command will use `sudo`. If you prefer not to install the tool system-wide, you can run the `cryptui.py` script directly from this root directory. When run directly, it will use the `config.ini` and `notification.md` files from the same directory.
+    **Note:** The `make install` command will copy configuration files to `~/.config/cryptui`.
 
 ## Usage
 
@@ -80,11 +80,11 @@ cryptui -s DOGEUSDT -H 20
 
 ## Configuration
 
-Configuration files are located in `/usr/local/etc/cryptui/`.
+Configuration files are located in `~/.config/cryptui/`.
 
 ### Price Notifications (`notification.md`)
 
-To receive price alerts, edit `/usr/local/etc/cryptui/notification.md`. The script will monitor the price of the selected symbol and send a `wall` message when it crosses the defined thresholds:
+To receive price alerts, edit `~/.config/cryptui/notification.md`. The script will monitor the price of the selected symbol and send a `wall` message when it crosses the defined thresholds:
 
 -   `less`: Notifies when the price becomes **less than or equal to** this value.
 -   `more`: Notifies when the price becomes **greater than or equal to** this value.
@@ -104,7 +104,7 @@ The notification will only trigger once when the threshold is crossed. It resets
 
 ### Technical Indicators (`config.ini`)
 
-To configure technical indicators, edit `/usr/local/etc/cryptui/config.ini`. Currently, Bollinger Bands are supported.
+To configure technical indicators, edit `~/.config/cryptui/config.ini`. Currently, Bollinger Bands are supported.
 
 **Example `config.ini`:**
 

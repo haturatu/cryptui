@@ -312,10 +312,12 @@ async def main():
     historical_prices = deque(maxlen=CHART_WIDTH - 1)
 
     # --- Config File Loading ---
+    CONFIG_DIR = os.path.expanduser("~/.config/cryptui")
     config = configparser.ConfigParser()
     tech_indicators_config = {}
     try:
-        config.read('config.ini')
+        config_path = os.path.join(CONFIG_DIR, 'config.ini')
+        config.read(config_path)
         if 'technical_indicators' in config:
             ti_section = config['technical_indicators']
             tech_indicators_config['bollinger_bands'] = ti_section.get('bollinger_bands', 'no')
@@ -324,19 +326,20 @@ async def main():
             if tech_indicators_config.get('bollinger_bands') == 'yes':
                 print("Bollinger Bands enabled.")
     except Exception as e:
-        print(f"Could not read or parse config.ini: {e}")
+        print(f"Could not read or parse {config_path}: {e}")
 
 
     notification_rules, notification_state = None, None
     try:
-        with open('notification.md', 'r') as f:
+        notification_path = os.path.join(CONFIG_DIR, 'notification.md')
+        with open(notification_path, 'r') as f:
             notification_rules = parse_notification_rules(f.read(), args.symbol)
         if notification_rules:
             print(f"Notification rules loaded for {args.symbol}: Less < {notification_rules['less']}, More > {notification_rules['more']}")
             notification_state = {'less_triggered': False, 'more_triggered': False}
             notification_rules['symbol'] = args.symbol
     except FileNotFoundError:
-        print("notification.md not found, skipping notification feature.")
+        print(f"{notification_path} not found, skipping notification feature.")
     except Exception as e:
         print(f"Error loading notification rules: {e}")
 

@@ -320,7 +320,7 @@ async def async_main():
     historical_prices = deque(maxlen=CHART_WIDTH - 1)
 
     # --- Config File Loading ---
-    CONFIG_DIR = "/usr/local/etc/cryptui"
+    CONFIG_DIR = os.path.expanduser("~/.config/cryptui")
     config = configparser.ConfigParser()
     tech_indicators_config = {}
     try:
